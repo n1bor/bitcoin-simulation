@@ -1,0 +1,29 @@
+
+
+Sample output with 250,000 nodes
+
+Messages in queue:3 messages sent so far:5
+Messages in queue:18 messages sent so far:38
+Messages in queue:67 messages sent so far:148
+Messages in queue:251 messages sent so far:557
+Messages in queue:911 messages sent so far:2014
+Messages in queue:3186 messages sent so far:7312
+Messages in queue:10140 messages sent so far:25297
+Messages in queue:23560 messages sent so far:72041
+Messages in queue:34068 messages sent so far:147979
+Messages in queue:28988 messages sent so far:210016
+Messages in queue:14847 messages sent so far:237872
+Messages in queue:5398 messages sent so far:247309
+Messages in queue:1857 messages sent so far:250431
+Messages in queue:597 messages sent so far:251420
+Messages in queue:172 messages sent so far:251707
+Messages in queue:77 messages sent so far:251829
+Messages in queue:22 messages sent so far:251860
+Messages in queue:7 messages sent so far:251870
+Messages in queue:1 messages sent so far:251872
+Messages in queue:0 messages sent so far:251872
+80 Connection nodes that got message (out of 100):99
+Nodes that got message:130831 Msg sent between nodes:251872
+Listening Nodes that got message:86534 Total Listening Nodes:117243 Cons2945930
+Percent of Client Nodes recieving Message:52%
+Percent of Server Nodes recieving Message:73%

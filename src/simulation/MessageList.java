@@ -13,7 +13,7 @@ public class MessageList {
 	}
 	
 	public String toString(){
-		String s="L:"+queue.size();
+		String s="Length:"+queue.size()+" Total sent:"+messageCount;
 		return s;
 	}
 	
