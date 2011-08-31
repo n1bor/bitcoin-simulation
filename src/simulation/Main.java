@@ -12,7 +12,7 @@ public class Main {
 		Main m=new Main();
 		m.run();
 	}
-	static int TOTAL_MAIN_NODES=64000;
+	static int TOTAL_MAIN_NODES=250000;
 	void run(){
 		
 		
@@ -73,6 +73,7 @@ public class Main {
 		//Create the message. the 9 means nothing - is just some random content!
 		ml.addMessage(nodeToSendTo,new Message(9,"addr",-1,nodeToSendTo));
 		
+		System.out.println("\n\n\nStats from addr message propagation.");
 		//cycle through a number of rounds till message queue is clear.
 		for(int round=0;round<10000;round++){
 			//Cycle through all the nodes processing the messages.
@@ -113,12 +114,76 @@ public class Main {
 			if (Node.allNodes.get(TOTAL_MAIN_NODES+i).gotMessage)
 				meGot++;
 		}
+		
 		System.out.println("80 Connection nodes that got message (out of 100):"+meGot);
 	
 		System.out.println("Nodes that got message:"+gotMessages+" Msg sent between nodes:"+ml.messageCount);
 		System.out.println("Listening Nodes that got message:"+serversGot+" Total Listening Nodes:"+servers+" Cons"+serverConnections);
-		System.out.println("Percent of Client Nodes recieving Message:"+(100*gotMessages/TOTAL_MAIN_NODES)+"%");
-		System.out.println("Percent of Server Nodes recieving Message:"+(100*serversGot/servers)+"%");
+		System.out.println("Percent of Client Nodes receiving Message:"+(100*gotMessages/TOTAL_MAIN_NODES)+"%");
+		System.out.println("Percent of Server Nodes receiving Message:"+(100*serversGot/servers)+"%");
+		
+		//now repeat with tx message
+		System.out.println("\n\n\nStats from tx message propagation.");
+		//Just get the ID of any listening node.
+		 ml=new MessageList();
+		nodeToSendTo=0;
+		do {
+			nodeToSendTo=r.nextInt(Node.allNodes.size());
+			
+		} while (!Node.allNodes.get(nodeToSendTo).server);
+		
+		//Create the message. the 9 means nothing - is just some random content!
+		ml.addMessage(nodeToSendTo,new Message(9,"tx",-1,nodeToSendTo));
+		
+		//cycle through a number of rounds till message queue is clear.
+		for(int round=0;round<10000;round++){
+			//Cycle through all the nodes processing the messages.
+			for(int node=0;node<Node.allNodes.size();node++){
+				Node.allNodes.get(node).ProcessMessages(ml);
+				
+			}
+			//Print out the number of messages in queue.
+			System.out.println("Messages in queue:"+ml.queue.size()+" messages sent so far:"+ml.messageCount);
+			if(ml.queue.size()==0)
+				break;
+		}
+		
+		gotMessages=0;
+		servers=0;
+		serversGot=0;
+		serverConnections=0;
+		
+		//Now analyse number of nodes that received the message.
+		for (Node n: Node.allNodes.values()){
+			
+			if (n.gotMessage){
+				//System.out.println(Node.allNodes.get(i).toString());
+				gotMessages++;
+				if(n.server)
+					serversGot++;
+			}
+			if(n.server){
+				serverConnections+=n.connectionCount;
+				servers++;
+			}
+		
+		}
+		
+		//Now analyse how many of my special test nodes got the messages.
+		meGot=0;
+		for(int i=0;i<100;i++){
+			if (Node.allNodes.get(TOTAL_MAIN_NODES+i).gotMessage)
+				meGot++;
+		}
+		
+		
+		System.out.println("80 Connection nodes that got message (out of 100):"+meGot);
+	
+		System.out.println("Nodes that got message:"+gotMessages+" Msg sent between nodes:"+ml.messageCount);
+		System.out.println("Listening Nodes that got message:"+serversGot+" Total Listening Nodes:"+servers+" Cons"+serverConnections);
+		System.out.println("Percent of Client Nodes receiving Message:"+(100*gotMessages/TOTAL_MAIN_NODES)+"%");
+		System.out.println("Percent of Server Nodes receiving Message:"+(100*serversGot/servers)+"%");
+		
 	}
 
 }

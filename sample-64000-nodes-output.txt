@@ -1,24 +1,38 @@
 Sample output with 64,000 nodes
 
-Messages in queue:9 messages sent so far:17
-Messages in queue:30 messages sent so far:67
-Messages in queue:99 messages sent so far:221
-Messages in queue:355 messages sent so far:798
-Messages in queue:1254 messages sent so far:2894
-Messages in queue:3686 messages sent so far:9598
-Messages in queue:7445 messages sent so far:25339
-Messages in queue:8658 messages sent so far:45159
-Messages in queue:6195 messages sent so far:57872
-Messages in queue:2713 messages sent so far:62869
-Messages in queue:921 messages sent so far:64498
-Messages in queue:270 messages sent so far:64972
-Messages in queue:90 messages sent so far:65121
-Messages in queue:21 messages sent so far:65158
-Messages in queue:8 messages sent so far:65172
-Messages in queue:2 messages sent so far:65177
-Messages in queue:0 messages sent so far:65177
+Stats from addr message propagation.
+Messages in queue:3 messages sent so far:5
+Messages in queue:16 messages sent so far:31
+Messages in queue:66 messages sent so far:141
+Messages in queue:241 messages sent so far:543
+Messages in queue:871 messages sent so far:1984
+Messages in queue:2803 messages sent so far:6949
+Messages in queue:6435 messages sent so far:19886
+Messages in queue:8894 messages sent so far:39644
+Messages in queue:7153 messages sent so far:54962
+Messages in queue:3368 messages sent so far:61257
+Messages in queue:1208 messages sent so far:63390
+Messages in queue:383 messages sent so far:64042
+Messages in queue:137 messages sent so far:64274
+Messages in queue:54 messages sent so far:64362
+Messages in queue:16 messages sent so far:64391
+Messages in queue:2 messages sent so far:64395
+Messages in queue:0 messages sent so far:64395
 80 Connection nodes that got message (out of 100):99
-Nodes that got message:33893 Msg sent between nodes:65177
-Listening Nodes that got message:22552 Total Listening Nodes:30309 Cons762466
-Percent of Client Nodes recieving Message:52%
-Percent of Server Nodes recieving Message:74%
+Nodes that got message:33463 Msg sent between nodes:64395
+Listening Nodes that got message:22205 Total Listening Nodes:30336 Cons762670
+Percent of Client Nodes receiving Message:52%
+Percent of Server Nodes receiving Message:73%
+
+
+
+Stats from tx message propagation.
+Messages in queue:8 messages sent so far:9
+Messages in queue:28938 messages sent so far:943503
+Messages in queue:296 messages sent so far:975589
+Messages in queue:0 messages sent so far:975589
+80 Connection nodes that got message (out of 100):100
+Nodes that got message:64100 Msg sent between nodes:975589
+Listening Nodes that got message:30336 Total Listening Nodes:30336 Cons762670
+Percent of Client Nodes receiving Message:100%
+Percent of Server Nodes receiving Message:100%

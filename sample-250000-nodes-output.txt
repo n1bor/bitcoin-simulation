@@ -1,29 +1,40 @@
-
-
 Sample output with 250,000 nodes
 
-Messages in queue:3 messages sent so far:5
-Messages in queue:18 messages sent so far:38
-Messages in queue:67 messages sent so far:148
-Messages in queue:251 messages sent so far:557
-Messages in queue:911 messages sent so far:2014
-Messages in queue:3186 messages sent so far:7312
-Messages in queue:10140 messages sent so far:25297
-Messages in queue:23560 messages sent so far:72041
-Messages in queue:34068 messages sent so far:147979
-Messages in queue:28988 messages sent so far:210016
-Messages in queue:14847 messages sent so far:237872
-Messages in queue:5398 messages sent so far:247309
-Messages in queue:1857 messages sent so far:250431
-Messages in queue:597 messages sent so far:251420
-Messages in queue:172 messages sent so far:251707
-Messages in queue:77 messages sent so far:251829
-Messages in queue:22 messages sent so far:251860
-Messages in queue:7 messages sent so far:251870
-Messages in queue:1 messages sent so far:251872
-Messages in queue:0 messages sent so far:251872
-80 Connection nodes that got message (out of 100):99
-Nodes that got message:130831 Msg sent between nodes:251872
-Listening Nodes that got message:86534 Total Listening Nodes:117243 Cons2945930
-Percent of Client Nodes recieving Message:52%
-Percent of Server Nodes recieving Message:73%
+
+Stats from addr message propagation.
+Messages in queue:2 messages sent so far:3
+Messages in queue:6 messages sent so far:11
+Messages in queue:21 messages sent so far:42
+Messages in queue:96 messages sent so far:207
+Messages in queue:377 messages sent so far:815
+Messages in queue:1402 messages sent so far:3118
+Messages in queue:4899 messages sent so far:11424
+Messages in queue:14342 messages sent so far:37607
+Messages in queue:28564 messages sent so far:97532
+Messages in queue:33742 messages sent so far:173046
+Messages in queue:23580 messages sent so far:221108
+Messages in queue:10689 messages sent so far:240524
+Messages in queue:3883 messages sent so far:247142
+Messages in queue:1238 messages sent so far:249191
+Messages in queue:348 messages sent so far:249775
+Messages in queue:98 messages sent so far:249937
+Messages in queue:30 messages sent so far:249997
+Messages in queue:0 messages sent so far:249997
+80 Connection nodes that got message (out of 100):98
+Nodes that got message:129859 Msg sent between nodes:249997
+Listening Nodes that got message:86149 Total Listening Nodes:117425 Cons2947386
+Percent of Client Nodes receiving Message:51%
+Percent of Server Nodes receiving Message:73%
+
+
+
+Stats from tx message propagation.
+Messages in queue:110621 messages sent so far:1370920
+Messages in queue:52627 messages sent so far:3763095
+Messages in queue:23 messages sent so far:3765991
+Messages in queue:0 messages sent so far:3765991
+80 Connection nodes that got message (out of 100):100
+Nodes that got message:250100 Msg sent between nodes:3765991
+Listening Nodes that got message:117425 Total Listening Nodes:117425 Cons2947386
+Percent of Client Nodes receiving Message:100%
+Percent of Server Nodes receiving Message:100%

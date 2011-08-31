@@ -1,0 +1,55 @@
+
+This project is a simple simulation of how messages will propagate in the Bitcoin p2p network.
+It was written to check that our assumption that 80 connections listening for addr messages
+used in the bitcoinstatus.rowit.co.uk web site was enough.
+
+
+
+Below is my analysis of how addr messages are propagated.
+This should really be on the wiki.
+
+
+net.ccp 443
+AddAddress(CAddress, int64)
+If external address
+If new add to mapAddresses and CAddrDB with time penalty
+(always 2 hour) reduction in time last seen.
+If in map already then if addr is less than 22hrs old
+ If stored is more that 3 hr older than message then update stored.
+else
+ If stored is more that 26hr older update stored time.
+
+
+When receive version (main.cpp:1793)
+	if outbound send our address as addr message and send getaddr message.
+
+		
+
+when receive addr message (main.cpp:1889)
+	AddAddress with 2hr penalty.
+	If addr less than 10 mins old and not from getaddr
+		Forward the address to 2 random peers. (If receive same address in same 24 hour
+		period will send to same address. After that period will send to different 2).
+
+
+
+When receive getaddr message (main.cpp:2174)
+	clear list of known address for that peer
+	add up to 2500 address selected at random that are less than 3 hours old and send back.
+	Note: this is in effect 1 hour old if from another peer adr message because of 2hr penalty.
+	Note: if more than 1000 will be split into multiple messages.
+
+in Send Messages (main.cpp:2400) This is called every 100ms or so.
+Every 24 hours:
+	delete from all nodes all known addresses.
+	Send an Addr message with our address in it.
+
+Every 10 mins if more than 3 nodes:
+	Delete any addresses from addrdb that are over 2 weeks old if addrdb
+	has more than 1000 entries. (This stops if it takes more that 20 secs).
+
+To one randomly selected node: (main.cpp:2470)
+	Send an addr message with all the messages that are queued up in it.	
+
+In IRC irc.cpp
+	When new person joins channel call AddAddress with 51min penalty.

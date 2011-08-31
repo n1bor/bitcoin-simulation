@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
+
 
 public class Node {
 	static Map<Integer,Node> allNodes;
@@ -97,6 +97,18 @@ public class Node {
 				for (int i=0;i<2;i++){
 				
 					int connId=r.nextInt(connections.size());
+					int sendNodeId=connections.get(connId).nodeId;
+					Message sendMes=new Message(m.intData,m.type,nodeId,sendNodeId);
+					if(!connections.get(connId).sentAddressMessages.contains(m.intData)){
+						ml.addMessage(sendNodeId, sendMes);
+						connections.get(connId).sentAddressMessages.add(m.intData);
+					}
+				}
+			}
+			if(m.type=="tx"){
+				gotMessage=true;
+				
+				for (int connId=0;connId<connections.size();connId++){
 					int sendNodeId=connections.get(connId).nodeId;
 					Message sendMes=new Message(m.intData,m.type,nodeId,sendNodeId);
 					if(!connections.get(connId).sentAddressMessages.contains(m.intData)){
